@@ -2,8 +2,21 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/esm/Container';
 import Placeholder from 'react-bootstrap/Placeholder'
+import axios from 'axios';
+import { useState, useEffect } from 'react';
+const serverUrl = `https://portfoliofinal-7bli.onrender.com`
+
 
 const Contact = () => {
+    const [contact, setContact] = useState([])
+    const fetchContact = async() => {
+        const res = axios.post(`${serverUrl}/contact`)
+    }
+
+    useEffect(()=>{
+        fetchContact()
+    },[])
+
     return (
         <div id='contact' className='contact'>
         <Container> 

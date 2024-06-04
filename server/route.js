@@ -16,4 +16,18 @@ router.get('/contact',async(req,res)=> {
     }
 })
 
+router.post('/contact', async (req, res) => {
+    const { fname, lname, email, phone } = req.body;
+    try {
+        const [newContact] = await db('contact')
+            .insert({ fname, lname, email, phone })
+            .returning('*'); 
+
+        res.status(201).json(newContact);
+    } catch (e) {
+        console.log(`error => ${e}`);
+        res.status(500).json({ msg: 'Internal Server Error' });
+    }
+});
+
 export default router;
