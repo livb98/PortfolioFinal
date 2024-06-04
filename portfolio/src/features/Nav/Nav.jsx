@@ -6,7 +6,7 @@ const Navigaton = () => {
     return (
     <Navbar fixed="top" style={{backgroundColor: "rgb(238, 239, 241)"}}>
       <Container >
-      <Navbar.Brand href="#home">Home</Navbar.Brand>
+      <Navbar.Brand href="#">Home</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="me-auto">
