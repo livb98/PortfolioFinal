@@ -10,7 +10,10 @@ const serverUrl = `https://portfoliofinal-7bli.onrender.com`
 const Contact = () => {
     const [contact, setContact] = useState([])
     const fetchContact = async() => {
-        const res = axios.post(`${serverUrl}/contact`)
+        const res = await axios.post(`${serverUrl}/contact`)
+        const data = await res.data
+        console.log(data);
+        setContact(data)
     }
 
     useEffect(()=>{
@@ -25,19 +28,20 @@ const Contact = () => {
         <Form style={{width: "80vw"}}>
             <Form.Group className="mb-3" controlId="formBasicFirstName">
             <Form.Label>First Name</Form.Label>
-            <Form.Control type="email" placeholder="First Name"/>
+            <Form.Control type="text" placeholder="First Name"/>
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicLastName">
             <Form.Label>Last Name</Form.Label>
-            <Form.Control type="email" placeholder="Last Name" />
+            <Form.Control type="text" placeholder="Last Name" />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
-            <Form.Control type="email" placeholder="Enter email" />
+            <Form.Control type="text" placeholder="Enter email" />
+            {/* <Form.Control type="email" placeholder="Enter email" /> */}
             </Form.Group>
             <Form.Group className="mb-3" controlId='formBasicPhone'>
             <Form.Label>Phone Number</Form.Label>
-            <Form.Control type="password" placeholder="Phone Number" />
+            <Form.Control type="number" placeholder="Phone Number" />
             </Form.Group>
             <Button variant="secondary" type="submit">
             Submit
